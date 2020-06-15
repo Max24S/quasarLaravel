@@ -15,6 +15,7 @@ class Password extends Model
     public function getPassports()
     {
         return DB::table('passwords')
-        ->get();
+         ->orderByDesc('id')
+         ->get();
     }
 }

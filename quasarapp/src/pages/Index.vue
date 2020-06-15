@@ -1,6 +1,6 @@
 <template>
   <div class="q-pa-md">
-    <button @click="getPassports">dfssfs</button>
+    <button @click="addPassport">dfssfs</button>
     <q-table
       :grid="$q.screen.xs"
       title="Treats"
@@ -8,7 +8,6 @@
       :columns="columns"
       row-key="name"
       :filter="filter"
-
     >
       <template v-slot:top-right>
         <q-input borderless dense debounce="300" v-model="filter" placeholder="Search">
@@ -18,7 +17,7 @@
         </q-input>
       </template>
     </q-table>
-    {{this.data}}
+
   </div>
 </template>
 
@@ -111,23 +110,29 @@ export default {
     }
   },
   methods:{
-    test(){
-      alert('dfs');
-    },
-    getPassports()
+    addPassport()
     {
-      alert('werewr');
-      this.$axios.get('http://localhost:8000/api/passports')
-        .then((response) => {
+      this.$axios.post('http://quasaarlaravel.s-host.net/api/passports', {name:'123',surname:'asdfsdfs',number:'231312',series:'DF',organ:'sfsdfsdfsfsf'})
+        .then(response => {
           this.data = response.data;
         })
         .catch(e => {
-         alert('error');
+          alert('error');
         })
+    },
+    getPassports()
+    {
+      this.$axios.get('http://quasaarlaravel.s-host.net/api/passports')
+      .then((response) => {
+        this.data = response.data;
+      })
+      .catch(e => {
+        alert('error');
+      })
     }
   },
   created() {
-
+    this.getPassports();
   }
 }
 </script>

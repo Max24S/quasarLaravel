@@ -35,7 +35,8 @@ class PassportController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Password::create($request->all());
+        return response((new Password())->getPassports(),200);
     }
 
     /**
