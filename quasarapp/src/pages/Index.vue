@@ -103,8 +103,20 @@
         this.$refs.name.validate();
         this.$refs.surname.validate();
         if (!this.$refs.name.hasError&&!this.$refs.surname.hasError){
-          let arrByID = this.data.filter(this.filterSearch);
-          this.data = arrByID;
+
+            this.$axios.post('http://quasaarlaravel.s-host.net/api/search' , {
+              name: this.name,
+              surname: this.surname,
+              series:  this.series  ,
+              number: this.number ,
+              organ: this.organization ,
+            })
+              .then(response => {
+                this.dataFromDB = response.data;
+                this.data = response.data
+
+              })
+
         }
         else {
         }
