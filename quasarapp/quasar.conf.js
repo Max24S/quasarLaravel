@@ -25,6 +25,7 @@ module.exports = function (/* ctx */) {
 
     ],
     framework: {
+
       // NOT needed if using auto-import feature:
       components: [
         'QTable',

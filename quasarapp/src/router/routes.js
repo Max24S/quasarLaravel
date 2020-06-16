@@ -4,15 +4,17 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
+      { path: '', component: () => import('pages/Index.vue'), name: 'main' },
+      { path: '', component: () => import('pages/Index.vue'), name: 'main' },
     ]
   },
   {
-    path: '/table',
-    component: () => import('layouts/MainLayout.vue'),
+    path: '/add',
+    component: () => import('layouts/addLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/Index.vue') }
-    ]
+      { path: '/', component: () => import('pages/Create.vue') }
+    ],
+    name: 'addform'
   }
 ]
 
