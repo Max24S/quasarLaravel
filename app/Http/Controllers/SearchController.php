@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Password;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -32,7 +33,7 @@ class SearchController extends Controller
 
     public function search(Request $request){
 
-       return $search = Passports::where('surname',$request['suname']?'=':'<>',$request['surname'])
+       return $search = Password::where('surname',$request['suname']?'=':'<>',$request['surname'])
             ->where('name',$request['name']?'=':'<>',$request['name'])
             ->where('series',$request['series']?'=':'<>',$request['series'])
             ->where('number',$request['number']?'=':'<>',$request['number'])
