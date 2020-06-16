@@ -18,4 +18,4 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 Route::resource('/passports', 'PassportController');
-Route::get('/post', 'SearchController');
+Route::post('/search', 'SearchController');
