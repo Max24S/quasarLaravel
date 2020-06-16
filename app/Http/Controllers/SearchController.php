@@ -33,7 +33,7 @@ class SearchController extends Controller
 
     public function search(Request $request){
 
-       return $search = Password::where('surname',$request['suname']?'=':'<>',$request['surname'])
+       return $search = Password::where('surname',$request['surname']?'=':'<>',$request['surname'])
             ->where('name',$request['name']?'=':'<>',$request['name'])
             ->where('series',$request['series']?'=':'<>',$request['series'])
             ->where('number',$request['number']?'=':'<>',$request['number'])
